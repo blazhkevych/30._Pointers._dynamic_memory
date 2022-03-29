@@ -121,3 +121,23 @@ int* DelNeg(int* ptr, int* size)
 	delete[] ptr;
 	return p;
 }
+
+// Функция создает третий массив минимально возможного размера, в котором собраны те элементы массива A, 
+// которых нет в массиве B, без повторений.
+int* ElOfArrAWhichNotInArrB(int* ptrA, int* ptrB, int M, int N)
+{
+	int k{ 0 }; // Размер третьего массива.
+	for (int i = 0; i < M; i++) // ptrA
+	{
+		for (int j = 0; j < N; j++) // ptrB
+		{
+			if (ptrA[i] == ptrB[j])
+			{
+				k++;
+				break;
+			}
+		}
+	}
+	cout << endl << k;
+	return 0;
+}

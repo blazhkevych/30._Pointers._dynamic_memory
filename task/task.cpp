@@ -78,7 +78,40 @@ int main()
 			размера, в котором нужно собрать те элементы массива A, которых
 			нет в массиве B, без повторений.
 			*/
+			/*int M{ 0 }, N{ 0 };
+			int* ptrM = &M;
+			int* ptrN = &N;
+			cout << "Enter M: ";
+			cin >> *(ptrM);
+			cout << "\nEnter N: ";
+			cin >> *(ptrN);
 
+			int* ptrA{ nullptr };
+			int* ptrB{ nullptr };
+			ptrA = Allocate(*(ptrM));
+			ptrB = Allocate(*(ptrN));
+			Init(ptrA, *(ptrM), -10, 10);
+			Init(ptrB, *(ptrN), -10, 10);
+			cout << endl;
+			Print(ptrA, *(ptrM));
+			cout << endl;
+			Print(ptrB, *(ptrN));
+			cout << endl;*/
+			int M{ 0 }, N{ 0 };
+			cout << "Enter M: ";
+			cin >> M;
+			cout << "\nEnter N: ";
+			cin >> N;
+			int* ptrA = Allocate(M);
+			int* ptrB = Allocate(N);
+			Init(ptrA, M, -10, 10);
+			Init(ptrB, N, -10, 10);
+			cout << endl;
+			Print(ptrA, M);
+			cout << endl;
+			Print(ptrB, N);
+			cout << endl;
+			ElOfArrAWhichNotInArrB(ptrA, ptrB, M, N);
 		}
 		break;
 

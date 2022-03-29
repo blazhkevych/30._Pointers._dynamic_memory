@@ -29,3 +29,7 @@ int* RemoveByIndex(int* ptr, int* size, int index);
 
 // Функция удаляет из массива все отрицательные числа и возвращает указатель на новый динамический массив.
 int* DelNeg(int* ptr, int* size);
+
+// Функция создает третий массив минимально возможного размера, в котором собраны те элементы массива A, 
+// которых нет в массиве B, без повторений.
+int* ElOfArrAWhichNotInArrB(int* ptrArr1, int* ptrArr2, int M, int N);
