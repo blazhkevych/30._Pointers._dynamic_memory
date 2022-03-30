@@ -112,7 +112,17 @@ int main()
 			динамического массива. Функция должна возвращать указатель на
 			динамический массив.
 			*/
+			const int arr_Size{ 10 }; // Размер массива.
+			int arrA[arr_Size]{ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 }; // Создаем массив.
 
+			int sizeB{ 0 };
+			cout << "sizeA: ";
+			cin >> sizeB;
+
+			int* ptrB = Allocate(sizeB);
+			ptrB = AddArrToTheEndOfADynamicArr(ptrB, &sizeB, arrA, arr_Size);
+			cout << endl;
+			Print(ptrB, sizeB);
 		}
 		break;
 

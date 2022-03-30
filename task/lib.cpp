@@ -178,3 +178,20 @@ int* ElOfArrAWhichNotInArrB(int* ptrA, int* ptrB, int M, int N, int* ptrC_size)
 	*(ptrC_size) = k;
 	return ptrC;
 }
+
+//функция, добавляет массив в конец динамического массива. Возвращает указатель на динамический массив.
+int* AddArrToTheEndOfADynamicArr(int* ptrB, int* sizeB, int arrA[], int arr_Size)
+{
+	int newSize = arr_Size + *(sizeB);
+	ptrB = Allocate(newSize);
+	Init(ptrB, (newSize - arr_Size), -1, -1);
+	int j{ 0 };
+	for (int i = newSize - arr_Size; i < newSize; i++)
+	{
+		ptrB[i] = arrA[j];
+		j++;
+	}
+	*(sizeB) = newSize;
+
+	return ptrB;
+}
