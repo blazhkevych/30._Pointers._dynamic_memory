@@ -124,20 +124,57 @@ int* DelNeg(int* ptr, int* size)
 
 // Функция создает третий массив минимально возможного размера, в котором собраны те элементы массива A, 
 // которых нет в массиве B, без повторений.
-int* ElOfArrAWhichNotInArrB(int* ptrA, int* ptrB, int M, int N)
+int* ElOfArrAWhichNotInArrB(int* ptrA, int* ptrB, int M, int N, int* ptrC_size)
 {
 	int k{ 0 }; // Размер третьего массива.
+	int povtor = 0;
 	for (int i = 0; i < M; i++) // ptrA
 	{
+		povtor = 0;
 		for (int j = 0; j < N; j++) // ptrB
 		{
-			if (ptrA[i] == ptrB[j])
+			if (ptrA[i] == ptrB[j]) // проверка на совпадение
 			{
-				k++;
-				break;
+				povtor++;
+				break; // при совпадении дальше не идем
+			}
+		}
+		if (povtor == 0)
+			k++;
+	}
+	//cout << endl << k << endl;
+
+	int* ptrC = Allocate(k);
+	int y{ 0 };
+	for (int i = 0; i < M; i++) // ptrA
+	{
+		povtor = 0;
+		for (int j = 0; j < N; j++) // ptrB
+		{
+			if (ptrA[i] == ptrB[j]) // проверка на совпадение
+			{
+				povtor++;
+				break; // при совпадении дальше не идем
+			}
+		}
+		if (povtor == 0)
+		{
+			for (int q = 0; q < k; q++) // ptrC
+			{
+				if (ptrA[i] == ptrC[q]) // проверка на совпадение
+				{
+					povtor++;
+					k--;
+					break; // при совпадении дальше не идем
+				}
+			}
+			if (povtor == 0)
+			{
+				ptrC[y] = ptrA[i];
+				y++;
 			}
 		}
 	}
-	cout << endl << k;
-	return 0;
+	*(ptrC_size) = k;
+	return ptrC;
 }

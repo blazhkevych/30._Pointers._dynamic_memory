@@ -67,6 +67,8 @@ int main()
 			ptr = DelNeg(ptr, &size);
 			cout << endl;
 			Print(ptr, size);
+
+			delete[]ptr;
 		}
 		break;
 
@@ -78,25 +80,6 @@ int main()
 			размера, в котором нужно собрать те элементы массива A, которых
 			нет в массиве B, без повторений.
 			*/
-			/*int M{ 0 }, N{ 0 };
-			int* ptrM = &M;
-			int* ptrN = &N;
-			cout << "Enter M: ";
-			cin >> *(ptrM);
-			cout << "\nEnter N: ";
-			cin >> *(ptrN);
-
-			int* ptrA{ nullptr };
-			int* ptrB{ nullptr };
-			ptrA = Allocate(*(ptrM));
-			ptrB = Allocate(*(ptrN));
-			Init(ptrA, *(ptrM), -10, 10);
-			Init(ptrB, *(ptrN), -10, 10);
-			cout << endl;
-			Print(ptrA, *(ptrM));
-			cout << endl;
-			Print(ptrB, *(ptrN));
-			cout << endl;*/
 			int M{ 0 }, N{ 0 };
 			cout << "Enter M: ";
 			cin >> M;
@@ -111,7 +94,14 @@ int main()
 			cout << endl;
 			Print(ptrB, N);
 			cout << endl;
-			ElOfArrAWhichNotInArrB(ptrA, ptrB, M, N);
+			int C_size{ 0 };
+			int* ptrC_size = &C_size;
+			int* ptrC = ElOfArrAWhichNotInArrB(ptrA, ptrB, M, N, ptrC_size);
+			Print(ptrC, C_size);
+
+			delete[] ptrA;
+			delete[] ptrB;
+			delete[] ptrC;
 		}
 		break;
 

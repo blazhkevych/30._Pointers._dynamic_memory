@@ -32,4 +32,4 @@ int* DelNeg(int* ptr, int* size);
 
 // Функция создает третий массив минимально возможного размера, в котором собраны те элементы массива A, 
 // которых нет в массиве B, без повторений.
-int* ElOfArrAWhichNotInArrB(int* ptrArr1, int* ptrArr2, int M, int N);
+int* ElOfArrAWhichNotInArrB(int* ptrArr1, int* ptrArr2, int M, int N, int* ptrC_size);
