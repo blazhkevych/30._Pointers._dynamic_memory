@@ -195,3 +195,47 @@ int* AddArrToTheEndOfADynamicArr(int* ptrB, int* sizeB, int arrA[], int arr_Size
 
 	return ptrB;
 }
+
+// Функция проверяющая является ли число простым.
+bool IsPrime(int number)
+{
+	if (number < 2)
+		return false;
+	for (int i = 2; i * i <= number; i++) // Проверка до квадратного корня из number.
+		if (number % i == 0) // Если найден другой делитель числа number.
+			return false;
+	return true;
+}
+
+// Функция возвращающая количество простых чисел в массиве.
+int NumberOfPrimesIn1DArr(int* ptrA, int size)
+{
+	int count{ 0 };
+
+	for (int i = 0; i < size; i++)
+		if (IsPrime(ptrA[i]))
+			count++;
+
+	return count;
+}
+
+// Функция, получает указатель на динамический
+// массив и его размер. Удаляет из массива все
+// простые числа и возвращает указатель на новый динамический массив.
+int* DelPrimeNumInArr(int* ptrA, int* size)
+{
+	int n = NumberOfPrimesIn1DArr(ptrA, *(size));
+	int newSize = *(size)-n;
+	int* ptrB = Allocate(newSize);
+	int j{ 0 };
+	for (int i = 0; i < *(size); i++) // бежим до размера старого массива
+	{
+		if (IsPrime(ptrA[i]) == false)
+		{
+			ptrB[j] = ptrA[i];
+			j++;
+		}
+	}
+	*(size) = newSize;
+	return ptrB;
+}

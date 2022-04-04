@@ -123,6 +123,8 @@ int main()
 			ptrB = AddArrToTheEndOfADynamicArr(ptrB, &sizeB, arrA, arr_Size);
 			cout << endl;
 			Print(ptrB, sizeB);
+
+			delete[] ptrB;
 		}
 		break;
 
@@ -133,7 +135,11 @@ int main()
 			(одномерный массив) в указанную позицию динамического массива.
 			Функция должна возвращать указатель на динамический массив.
 			*/
-
+			int sizeA{ 0 };
+			int* ptrA = Allocate(sizeA);
+			cout << endl;
+			Print(ptrA, sizeA);
+			//2:48 - начало комметария по задаче.
 		}
 		break;
 
@@ -156,7 +162,15 @@ int main()
 			массив и его размер. Функция должна удалить из массива все
 			простые числа и вернуть указатель на новый динамический массив.
 			*/
+			int size{ 5 };
+			int* ptrA = Allocate(size);
+			Init(ptrA, size, 2, 19);
+			Print(ptrA, size);
+			ptrA = DelPrimeNumInArr(ptrA, &size);
+			cout << endl;
+			Print(ptrA, size);
 
+			delete[]ptrA;
 		}
 		break;
 		}

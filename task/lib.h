@@ -35,4 +35,15 @@ int* DelNeg(int* ptr, int* size);
 int* ElOfArrAWhichNotInArrB(int* ptrArr1, int* ptrArr2, int M, int N, int* ptrC_size);
 
 //функция, добавляет массив в конец динамического массива. Возвращает указатель на динамический массив.
-int* AddArrToTheEndOfADynamicArr(int * ptrB, int * sizeB, int arrA[], int arr_Size);
+int* AddArrToTheEndOfADynamicArr(int* ptrB, int* sizeB, int arrA[], int arr_Size);
+
+// Функция проверяющая является ли число простым.
+bool IsPrime(int number);
+
+// Функция возвращающая количество простых чисел в массиве.
+int NumberOfPrimesIn1DArr(int* ptrA, int size);
+
+// Функция, получает указатель на динамический
+// массив и его размер. Удаляет из массива все
+// простые числа и возвращает указатель на новый динамический массив.
+int* DelPrimeNumInArr(int* ptrA, int* size);
