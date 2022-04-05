@@ -239,3 +239,32 @@ int* DelPrimeNumInArr(int* ptrA, int* size)
 	*(size) = newSize;
 	return ptrB;
 }
+
+//Функция, которая позволяет вставлять блок элементов
+//(одномерный массив) в указанную позицию динамического массива.
+//Функция возвращает указатель на динамический массив.
+int* InsertArrInArrByIndex(int* ptrA, int* sizeA, int* ptrB, int* sizeB, int index)
+{
+	int sizeP = *sizeA + *sizeB;
+	if (index < 0 || index > sizeP - *sizeA)
+		return ptrB;
+	int* p = new int[sizeP];
+	int k = index + *sizeA;
+	int j{ 0 }, q{ 0 };
+	for (int i = 0; i < sizeP; i++)
+	{
+		if (i < index || i >= k)
+		{
+			p[i] = ptrB[j];
+			j++;
+		}
+		else if (i >= index && i < k)
+		{
+			p[i] = ptrA[q];
+			q++;
+		}
+	}
+	*sizeB = sizeP;
+	delete[]ptrA;
+	return p;
+}

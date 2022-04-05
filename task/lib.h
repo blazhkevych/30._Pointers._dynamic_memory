@@ -47,3 +47,8 @@ int NumberOfPrimesIn1DArr(int* ptrA, int size);
 // массив и его размер. Удаляет из массива все
 // простые числа и возвращает указатель на новый динамический массив.
 int* DelPrimeNumInArr(int* ptrA, int* size);
+
+//Функция, которая позволяет вставлять блок элементов
+//(одномерный массив) в указанную позицию динамического массива.
+//Функция возвращает указатель на динамический массив.
+int* InsertArrInArrByIndex(int* ptrA, int* sizeA, int* ptrB, int* sizeB, int index);

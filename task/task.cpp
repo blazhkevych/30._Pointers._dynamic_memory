@@ -135,11 +135,29 @@ int main()
 			(одномерный массив) в указанную позицию динамического массива.
 			Функция должна возвращать указатель на динамический массив.
 			*/
-			int sizeA{ 0 };
+			int sizeA{ 5 };
+			int sizeB{ 5 };
+			int* ptrSizeA = &sizeA;
+			int* ptrSizeB = &sizeB;
 			int* ptrA = Allocate(sizeA);
-			cout << endl;
+			int* ptrB = Allocate(sizeB);
+			Init(ptrA, sizeA, 1, 99);
+			Init(ptrB, sizeB, 1, 99);
+			cout << "ptrA :"
+				<< endl;
 			Print(ptrA, sizeA);
-			//2:48 - начало комметария по задаче.
+			cout << "\nptrB :"
+				<< endl;
+			Print(ptrB, sizeB);
+			cout << "\nEnter an index to insert: ";
+			int index{ 0 };
+			cin >> index;
+			ptrB = InsertArrInArrByIndex(ptrA, &sizeA, ptrB, &sizeB, index);
+			cout << "\nptrA in ptrB:"
+				<< endl;
+			Print(ptrB, sizeB);
+
+			delete[] ptrB;
 		}
 		break;
 
