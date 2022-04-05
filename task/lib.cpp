@@ -179,7 +179,7 @@ int* ElOfArrAWhichNotInArrB(int* ptrA, int* ptrB, int M, int N, int* ptrC_size)
 	return ptrC;
 }
 
-//функция, добавляет массив в конец динамического массива. Возвращает указатель на динамический массив.
+// функция, добавляет массив в конец динамического массива. Возвращает указатель на динамический массив.
 int* AddArrToTheEndOfADynamicArr(int* ptrB, int* sizeB, int arrA[], int arr_Size)
 {
 	int newSize = arr_Size + *(sizeB);
@@ -240,9 +240,9 @@ int* DelPrimeNumInArr(int* ptrA, int* size)
 	return ptrB;
 }
 
-//Функция, которая позволяет вставлять блок элементов
-//(одномерный массив) в указанную позицию динамического массива.
-//Функция возвращает указатель на динамический массив.
+// Функция, которая позволяет вставлять блок элементов
+// (одномерный массив) в указанную позицию динамического массива.
+// Функция возвращает указатель на динамический массив.
 int* InsertArrInArrByIndex(int* ptrA, int* sizeA, int* ptrB, int* sizeB, int index)
 {
 	int sizeP = *sizeA + *sizeB;
@@ -265,6 +265,30 @@ int* InsertArrInArrByIndex(int* ptrA, int* sizeA, int* ptrB, int* sizeB, int ind
 		}
 	}
 	*sizeB = sizeP;
+	delete[]ptrA;
+	return p;
+}
+
+// Функция, которая позволяет удалять с произвольного
+// индекса указанное количество элементов из динамического
+// массива.Функция должна возвращать указатель на динамический
+// массив.
+int* RemoveByIndexInArr(int* ptrA, int* sizeA, int index, int amount)
+{
+	int sizeP = *sizeA - amount;
+	if (index < 0 || index > *sizeA - amount)
+		return ptrA;
+	int* p = new int[sizeP];
+	int j = 0;
+	for (int i = 0; i < *sizeA; i++)
+	{
+		if (i < index || i >= index + amount)
+		{
+			p[j] = ptrA[i];
+			j++;
+		}
+	}
+	*sizeA = sizeP;
 	delete[]ptrA;
 	return p;
 }

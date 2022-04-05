@@ -168,8 +168,23 @@ int main()
 			индекса указанное количество элементов из динамического
 			массива. Функция должна возвращать указатель на динамический
 			массив.
+			2,51,35
 			*/
+			int sizeA{ 5 }, index{ 0 }, amount{ 0 };
+			int* ptrA = Allocate(sizeA);
+			Init(ptrA, sizeA, 1, 99);
+			cout << "ptrA :"
+				<< endl;
+			Print(ptrA, sizeA);
+			cout << "\nEnter index, than amount: \n";
+			cin >> index;
+			cin >> amount;
+			ptrA = RemoveByIndexInArr(ptrA, &sizeA, index, amount);
+			cout << "\nptrA after removal:"
+				<< endl;
+			Print(ptrA, sizeA);
 
+			delete[] ptrA;
 		}
 		break;
 
